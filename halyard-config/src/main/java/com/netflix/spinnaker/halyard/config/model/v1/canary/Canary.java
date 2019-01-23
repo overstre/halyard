@@ -27,6 +27,8 @@ import com.netflix.spinnaker.halyard.config.model.v1.canary.prometheus.Prometheu
 import com.netflix.spinnaker.halyard.config.model.v1.canary.prometheus.PrometheusCanaryServiceIntegration;
 import com.netflix.spinnaker.halyard.config.model.v1.canary.signalfx.SignalfxCanaryAccount;
 import com.netflix.spinnaker.halyard.config.model.v1.canary.signalfx.SignalfxCanaryServiceIntegration;
+import com.netflix.spinnaker.halyard.config.model.v1.canary.opentsdb.OpentsdbCanaryAccount;
+import com.netflix.spinnaker.halyard.config.model.v1.canary.opentsdb.OpentsdbCanaryServiceIntegration;
 import com.netflix.spinnaker.halyard.config.model.v1.node.Node;
 import com.netflix.spinnaker.halyard.config.model.v1.node.NodeIterator;
 import com.netflix.spinnaker.halyard.config.model.v1.node.NodeIteratorFactory;
@@ -45,6 +47,7 @@ public class Canary extends Node implements Cloneable {
                          new PrometheusCanaryServiceIntegration(),
                          new DatadogCanaryServiceIntegration(),
                          new SignalfxCanaryServiceIntegration(),
+                         new OpentsdbCanaryServiceIntegration(),
                          new AwsCanaryServiceIntegration());
   boolean reduxLoggerEnabled = true;
   String defaultMetricsAccount;
@@ -76,6 +79,8 @@ public class Canary extends Node implements Cloneable {
         return DatadogCanaryAccount.class;
       case SignalfxCanaryServiceIntegration.NAME :
         return SignalfxCanaryAccount.class;
+      case OpentsdbCanaryServiceIntegration.NAME :
+        return OpentsdbCanaryAccount.class;
       case AwsCanaryServiceIntegration.NAME :
         return AwsCanaryAccount.class;
       default:

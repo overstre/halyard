@@ -148,6 +148,16 @@
  * [**hal config canary signalfx account list**](#hal-config-canary-signalfx-account-list)
  * [**hal config canary signalfx disable**](#hal-config-canary-signalfx-disable)
  * [**hal config canary signalfx enable**](#hal-config-canary-signalfx-enable)
+ * [**hal config canary opentsdb**](#hal-config-canary-opentsdb)
+ * [**hal config canary opentsdb account**](#hal-config-canary-opentsdb-account)
+ * [**hal config canary opentsdb account add**](#hal-config-canary-opentsdb-account-add)
+ * [**hal config canary opentsdb account delete**](#hal-config-canary-opentsdb-account-delete)
+ * [**hal config canary opentsdb account edit**](#hal-config-canary-opentsdb-account-edit)
+ * [**hal config canary opentsdb account get**](#hal-config-canary-opentsdb-account-get)
+ * [**hal config canary opentsdb account list**](#hal-config-canary-opentsdb-account-list)
+ * [**hal config canary opentsdb disable**](#hal-config-canary-opentsdb-disable)
+ * [**hal config canary opentsdb edit**](#hal-config-canary-opentsdb-edit)
+ * [**hal config canary opentsdb enable**](#hal-config-canary-opentsdb-enable)
  * [**hal config ci**](#hal-config-ci)
  * [**hal config ci jenkins**](#hal-config-ci-jenkins)
  * [**hal config ci jenkins disable**](#hal-config-ci-jenkins-disable)
@@ -2078,6 +2088,7 @@ hal config canary [parameters] [subcommands]
  * `google`: Configure your canary analysis Google service integration settings for Spinnaker.
  * `prometheus`: Configure your canary analysis Prometheus service integration settings for Spinnaker.
  * `signalfx`: Configure your canary analysis SignalFx service integration settings for Spinnaker.
+ * `opentsdb`: Configure your canary analysis Opentsdb service integration settings for Spinnaker. 
 
 ---
 ## hal config canary aws
@@ -2974,6 +2985,176 @@ hal config canary signalfx enable [parameters]
 #### Parameters
  * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
  * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb
+
+Configure your canary analysis Opentsdb service integration settings for Spinnaker.
+
+#### Usage
+```
+hal config canary opentsdb [parameters] [subcommands]
+```
+
+#### Parameters
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+#### Subcommands
+ * `account`: Manage and view Spinnaker configuration for the Opentsdb service integration's canary accounts.
+ * `disable`: Set Spinnaker's canary analysis Opentsdb service integration to disabled.
+ * `edit`: Edit Spinnaker's canary analysis Opentsdb service integration settings.
+ * `enable`: Set Spinnaker's canary analysis Opentsdb service integration to enabled.
+
+---
+## hal config canary opentsdb account
+
+Manage and view Spinnaker configuration for the Opentsdb service integration's canary accounts.
+
+#### Usage
+```
+hal config canary opentsdb account ACCOUNT [parameters] [subcommands]
+```
+
+#### Parameters
+`ACCOUNT`: The name of the canary account to operate on.
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+#### Subcommands
+ * `add`: Add a canary account to the Opentsdb service integration.
+ * `delete`: Delete a specific Opentsdb canary account by name.
+ * `edit`: Edit a canary account in the Opentsdb service integration.
+ * `get`: Get the specified canary account details for the Opentsdb service integration.
+ * `list`: List the canary account names for the Opentsdb service integration.
+
+---
+## hal config canary opentsdb account add
+
+Add a canary account to the Opentsdb service integration.
+
+#### Usage
+```
+hal config canary opentsdb account add ACCOUNT [parameters]
+```
+
+#### Parameters
+`ACCOUNT`: The name of the canary account to operate on.
+ * `--base-url`: (*Required*) The base URL to the Opentsdb server.
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb account delete
+
+Delete a specific Opentsdb canary account by name.
+
+#### Usage
+```
+hal config canary opentsdb account delete ACCOUNT [parameters]
+```
+
+#### Parameters
+`ACCOUNT`: The name of the canary account to operate on.
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb account edit
+
+Edit a canary account in the Opentsdb service integration.
+
+#### Usage
+```
+hal config canary opentsdb account edit ACCOUNT [parameters]
+```
+
+#### Parameters
+`ACCOUNT`: The name of the canary account to operate on.
+ * `--base-url`: The base URL to the Opentsdb server.
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb account get
+
+Get the specified canary account details for the Opentsdb service integration.
+
+#### Usage
+```
+hal config canary opentsdb account get ACCOUNT [parameters]
+```
+
+#### Parameters
+`ACCOUNT`: The name of the canary account to operate on.
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb account list
+
+List the canary account names for the Opentsdb service integration.
+
+#### Usage
+```
+hal config canary opentsdb account list [parameters]
+```
+
+#### Parameters
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb disable
+
+Set Spinnaker's canary analysis Opentsdb service integration to disabled.
+
+#### Usage
+```
+hal config canary opentsdb disable [parameters]
+```
+
+#### Parameters
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb edit
+
+Edit Spinnaker's canary analysis Opentsdb service integration settings.
+
+#### Usage
+```
+hal config canary opentsdb edit [parameters]
+```
+
+#### Parameters
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--metadata-caching-interval-ms`: Number of milliseconds to wait in between caching the names of available metric types (for use in building canary configs; *Default*: `60000`).
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
+
+---
+## hal config canary opentsdb enable
+
+Set Spinnaker's canary analysis Opentsdb service integration to enabled.
+
+#### Usage
+```
+hal config canary opentsdb enable [parameters]
+```
+
+#### Parameters
+ * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+ * `--no-validate`: (*Default*: `false`) Skip validation.
+
 
 
 ---

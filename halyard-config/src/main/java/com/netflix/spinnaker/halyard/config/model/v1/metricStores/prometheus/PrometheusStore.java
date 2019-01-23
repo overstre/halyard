@@ -26,7 +26,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class PrometheusStore extends MetricStore {
+public class  PrometheusStore extends MetricStore {
   @Override
   public String getNodeName() {
     return "prometheus";

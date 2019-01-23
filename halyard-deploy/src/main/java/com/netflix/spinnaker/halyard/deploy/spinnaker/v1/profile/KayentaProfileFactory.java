@@ -28,6 +28,8 @@ import com.netflix.spinnaker.halyard.config.model.v1.canary.prometheus.Prometheu
 import com.netflix.spinnaker.halyard.config.model.v1.canary.prometheus.PrometheusCanaryServiceIntegration;
 import com.netflix.spinnaker.halyard.config.model.v1.canary.signalfx.SignalfxCanaryAccount;
 import com.netflix.spinnaker.halyard.config.model.v1.canary.signalfx.SignalfxCanaryServiceIntegration;
+import com.netflix.spinnaker.halyard.config.model.v1.canary.opentsdb.OpentsdbCanaryAccount;
+import com.netflix.spinnaker.halyard.config.model.v1.canary.opentsdb.OpentsdbCanaryServiceIntegration;
 import com.netflix.spinnaker.halyard.config.model.v1.node.DeploymentConfiguration;
 import com.netflix.spinnaker.halyard.deploy.spinnaker.v1.SpinnakerArtifact;
 import com.netflix.spinnaker.halyard.deploy.spinnaker.v1.SpinnakerRuntimeSettings;
@@ -82,6 +84,7 @@ public class KayentaProfileFactory extends SpringProfileFactory {
       AwsConfig aws;
       S3Config s3;
       SignalFxConfig signalfx;
+      OpentsdbConfig opentsdb;
 
       KayentaConfig(Canary canary) {
         for (AbstractCanaryServiceIntegration svc : canary.getServiceIntegrations()) {
@@ -103,7 +106,10 @@ public class KayentaProfileFactory extends SpringProfileFactory {
           } else if (svc instanceof SignalfxCanaryServiceIntegration) {
             SignalfxCanaryServiceIntegration signalfxSvc = (SignalfxCanaryServiceIntegration)svc;
             signalfx = new SignalFxConfig(signalfxSvc);
-          }
+          } else if (svc instanceof OpentsdbCanaryServiceIntegration) {
+            OpentsdbCanaryServiceIntegration opentsdbSvc = (OpentsdbCanaryServiceIntegration)svc;
+            opentsdb = new OpentsdbConfig(opentsdbSvc);
+        }
         }
       }
 
@@ -192,6 +198,20 @@ public class KayentaProfileFactory extends SpringProfileFactory {
           accounts = signalfxSvc.getAccounts();
         }
       }
+
+      @Data
+      static class OpentsdbConfig {
+        private boolean enabled;
+        private Long metadataCachingIntervalMS;
+        List<OpentsdbCanaryAccount> accounts;
+
+        OpentsdbConfig(OpentsdbCanaryServiceIntegration opentsdbSvc) {
+          enabled = opentsdbSvc.isEnabled();
+          metadataCachingIntervalMS = opentsdbSvc.getMetadataCachingIntervalMS();
+          accounts = opentsdbSvc.getAccounts();
+        }
+      }
+
     }
   }
 }
