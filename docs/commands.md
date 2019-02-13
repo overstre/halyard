@@ -2088,7 +2088,7 @@ hal config canary [parameters] [subcommands]
  * `google`: Configure your canary analysis Google service integration settings for Spinnaker.
  * `prometheus`: Configure your canary analysis Prometheus service integration settings for Spinnaker.
  * `signalfx`: Configure your canary analysis SignalFx service integration settings for Spinnaker.
- * `opentsdb`: Configure your canary analysis Opentsdb service integration settings for Spinnaker. 
+ * `opentsdb`: Configure your canary analysis Opentsdb service integration settings for Spinnaker.
 
 ---
 ## hal config canary aws
@@ -4576,7 +4576,7 @@ Example: "user/spinnaker" or "role/spinnakerManaged"
  * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
  * `--discovery`: The endpoint your Eureka discovery system is reachable at. See https://github.com/Netflix/eureka for more information.
 
-Example: http://{{region}}.eureka.url.to.use:8080/eureka-server/v2 
+Example: http://{{region}}.eureka.url.to.use:8080/eureka-server/v2
 
 Using {{region}} will make Spinnaker use AWS regions in the hostname to access discovery so that you can have discovery for multiple regions.
  * `--edda`: The endpoint Edda is reachable at. Edda is not a hard dependency of Spinnaker, but is helpful for reducing the request volume against AWS. See https://github.com/Netflix/edda for more information.
@@ -4629,7 +4629,7 @@ Example: "user/spinnaker" or "role/spinnakerManaged"
  * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
  * `--discovery`: The endpoint your Eureka discovery system is reachable at. See https://github.com/Netflix/eureka for more information.
 
-Example: http://{{region}}.eureka.url.to.use:8080/eureka-server/v2 
+Example: http://{{region}}.eureka.url.to.use:8080/eureka-server/v2
 
 Using {{region}} will make Spinnaker use AWS regions in the hostname to access discovery so that you can have discovery for multiple regions.
  * `--edda`: The endpoint Edda is reachable at. Edda is not a hard dependency of Spinnaker, but is helpful for reducing the request volume against AWS. See https://github.com/Netflix/edda for more information.
@@ -6124,7 +6124,7 @@ hal config provider google enable [parameters]
 ---
 ## hal config provider kubernetes
 
-The Kubernetes provider is used to deploy Kubernetes resources to any number of Kubernetes clusters. Spinnaker assumes you have a Kubernetes cluster already running. If you don't, you must configure one: https://kubernetes.io/docs/getting-started-guides/. 
+The Kubernetes provider is used to deploy Kubernetes resources to any number of Kubernetes clusters. Spinnaker assumes you have a Kubernetes cluster already running. If you don't, you must configure one: https://kubernetes.io/docs/getting-started-guides/.
 
 Before proceeding, please visit https://kubernetes.io/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/ to make sure you're familiar with the authentication terminology. For more information on how to configure individual accounts, or how to deploy to multiple clusters, please read the documentation under `hal config provider kubernetes account -h`.
 
@@ -7921,7 +7921,7 @@ hal config security authz ldap edit [parameters]
 #### Parameters
  * `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
  * `--group-role-attributes`: The attribute which contains the name of the authority defined by the group entry. Defaults to 'cn'.
- * `--group-search-base`: The part of the directory tree under which group searches should be performed. 
+ * `--group-search-base`: The part of the directory tree under which group searches should be performed.
  * `--group-search-filter`: The filter which is used to search for group membership. The default is 'uniqueMember={0}', corresponding to the groupOfUniqueMembers LDAP class. In this case, the substituted parameter is the full distinguished name of the user. The parameter '{1}' can be used if you want to filter on the login name.
  * `--manager-dn`: The manager user's distinguished name (principal) to use for querying ldap groups.
  * `--manager-password`: (*Sensitive data* - user will be prompted on standard input) The manager user's password to use for querying ldap groups.
@@ -8619,4 +8619,3 @@ hal version list [parameters]
 
 
 ---
-
